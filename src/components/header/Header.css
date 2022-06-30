@@ -1,5 +1,7 @@
 .Header {
-  padding-inline: 23.5px;
+  --fs-logo: 18px;
+
+  padding-inline: var(--spacing-inline);
   height: 99px;
 
   display: flex;
@@ -10,11 +12,25 @@
 
   background-color: var(--clr-white);
   box-shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
+  transition: height 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 40.625em) {
+  .Header {
+    --fs-logo: 24px;
+  }
+}
+
+@media screen and (min-width: 46.875em) {
+  .Header {
+    height: 80px;
+  }
 }
 
 .Header__logo {
-  font-size: 24px;
+  font-size: var(--fs-logo);
   letter-spacing: 0.01em;
+  transition: font-size 0.2s ease-in-out;
 }
 
 .Header__controls {
@@ -30,11 +46,9 @@
 @media screen and (min-width: 29.0625em) {
   .Header__controls p {
     display: block;
+    font-size: 16px;
   }
 }
-
-/* 
-[role='switch'][aria-checked='false'] */
 
 .Header__toggle {
   --size: 20px;

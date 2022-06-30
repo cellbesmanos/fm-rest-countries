@@ -19,7 +19,9 @@
   --fw-500: 600;
   --fw-600: 700;
 
-  --fw-md: 16px;
+  --fs-md: 16px;
+
+  --spacing-inline: clamp(23.5px, calc(2vw + 1rem), 80px);
 }
 
 *,
