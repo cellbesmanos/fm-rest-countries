@@ -21,6 +21,7 @@
 
   --fs-md: 16px;
 
+  --shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
   --transition: 0.2s ease-in-out;
   --spacing-inline: clamp(23.5px, calc(2vw + 1rem), 80px);
   --bradius: 5px;

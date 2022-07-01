@@ -11,7 +11,7 @@
   font-weight: var(--fw-500);
 
   background-color: var(--clr-white);
-  box-shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
+  box-shadow: var(--shadow);
   transition: height var(--transition);
 }
 
