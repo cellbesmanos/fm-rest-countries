@@ -38,7 +38,7 @@
 body {
   box-sizing: border-box;
 
-  color: var(--clr-blue-500);
+  color: var(--clr-blue-400);
   font-size: 14px;
   font-weight: var(--fw-400);
   font-family: "Nunito Sans", sans-serif;
