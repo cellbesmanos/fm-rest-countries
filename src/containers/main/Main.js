@@ -1,4 +1,5 @@
 import React from "react";
+import Country from "../../components/country/Country";
 import Form from "../../components/form/Form";
 
 export default function Main() {
@@ -6,6 +7,10 @@ export default function Main() {
     <main>
       <Form />
       <h1>Hello World!</h1>
+
+      <div>
+        <Country />
+      </div>
     </main>
   );
 }

@@ -1,0 +1,80 @@
+.Country {
+  --height: 416px;
+  --width: 328px;
+  --img-height: 200px;
+
+  width: var(--width);
+  min-height: var(--height);
+
+  background-color: var(--clr-white);
+  border-radius: var(--bradius);
+  box-shadow: var(--shadow);
+
+  transition: width var(--transition), height var(--transition);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 46.875em) {
+  .Country {
+    --height: 336px;
+    --width: 264px;
+    --img-height: 161px;
+  }
+}
+
+.Country__img {
+  display: inline-block;
+  height: var(--img-height);
+  transition: height var(--transition);
+}
+
+.Country__info {
+  --title: 20px;
+  --stats: 17px;
+
+  padding-block: 34px;
+  padding-inline: 31px;
+}
+
+.Country__name {
+  --margin: 27px;
+
+  margin-block-end: var(--margin);
+
+  font-size: var(--title);
+  font-weight: var(--fw-600);
+  letter-spacing: 0.05em;
+
+  transition: margin var(--transition), font-size var(--transition);
+}
+
+.Country__stats {
+  font-size: var(--stats);
+  transition: font-size var(--transition);
+}
+
+.Country__stats > div > h3 {
+  display: inline-block;
+  margin-inline-end: 5px;
+
+  font-weight: var(--fw-500);
+}
+
+.Country__stats > div > h3:not(:last-child) {
+  margin-block-end: 5px;
+}
+
+.Country__stats > div > span {
+  font-weight: var(--fw-400);
+}
+
+@media screen and (min-width: 46.875em) {
+  .Country__info {
+    --title: 16px;
+    --stats: 14px;
+  }
+
+  .Country__name {
+    --margin: 17px;
+  }
+}
