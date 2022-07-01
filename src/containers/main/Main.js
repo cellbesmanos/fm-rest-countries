@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "../../components/form/Form";
 
-export default function Countries() {
+export default function Main() {
   return (
     <main>
       <Form />
