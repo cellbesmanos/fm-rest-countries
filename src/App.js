@@ -1,14 +1,13 @@
 import React from "react";
 import Header from "./components/header/Header";
+import Countries from "./containers/countries/Countries";
 
 export default function App() {
   return (
     <>
       <Header />
 
-      <main>
-        <h1>Hello World!</h1>
-      </main>
+      <Countries />
     </>
   );
 }
