@@ -21,6 +21,7 @@
 
   --fs-md: 16px;
 
+  --transition: 0.2s ease-in-out;
   --spacing-inline: clamp(23.5px, calc(2vw + 1rem), 80px);
   --bradius: 5px;
 }
@@ -49,7 +50,7 @@ main {
   padding-block-start: 30px;
   padding-inline: var(--spacing-inline);
 
-  transition: padding 0.2s ease-in-out;
+  transition: padding var(--transition);
 }
 
 @media screen and (min-width: 46.875em) {

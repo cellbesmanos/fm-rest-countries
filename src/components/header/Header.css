@@ -12,7 +12,7 @@
 
   background-color: var(--clr-white);
   box-shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
-  transition: height 0.2s ease-in-out;
+  transition: height var(--transition);
 }
 
 @media screen and (min-width: 40.625em) {
@@ -30,7 +30,7 @@
 .Header__logo {
   font-size: var(--fs-logo);
   letter-spacing: 0.01em;
-  transition: font-size 0.2s ease-in-out;
+  transition: font-size var(--transition);
 }
 
 .Header__controls {

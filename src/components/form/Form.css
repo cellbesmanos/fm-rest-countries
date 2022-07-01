@@ -24,7 +24,7 @@
   background-color: var(--clr-white);
   box-shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
 
-  transition: border-color 0.2s ease-in-out;
+  transition: border-color var(--transition);
 }
 
 .Form__search:hover,
@@ -45,7 +45,7 @@
 @media screen and (min-width: 46.875em) {
   .Form__search {
     height: 56px;
-    transition: height 0.2s ease-in-out;
+    transition: height var(--transition);
   }
 }
 
@@ -60,7 +60,7 @@
   border: none;
 
   outline: none;
-  transition: color 0.2s ease-in-out;
+  transition: color var(--transition);
 }
 
 .Form__search input[type="search"]:focus {
