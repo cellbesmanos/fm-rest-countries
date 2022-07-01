@@ -14,6 +14,10 @@ Form wil only fetch each time the user has:
 
 export default function Form() {
   const [searchInput, setSearchInput] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("");
+
+  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
   function handleChange(e) {
     const type = e.target.dataset.label;
@@ -37,13 +41,52 @@ export default function Form() {
       return;
     }
 
-    console.log(searchInput);
-    setSearchInput("");
+    console.log(searchInput, activeFilter);
+  }
+
+  function toggleDropdown() {
+    setShowDropdown((prev) => !prev);
+  }
+
+  function renderFilter(region) {
+    if (region === activeFilter) {
+      return (
+        <li
+          onClick={toggleFilter}
+          className="active"
+          key={region}
+          data-label={region}
+        >
+          {region}
+        </li>
+      );
+    }
+
+    return (
+      <li onClick={toggleFilter} key={region} data-label={region}>
+        {region}
+      </li>
+    );
+  }
+
+  function toggleFilter(e) {
+    const filter = e.target.dataset.label;
+    const content = e.target.textContent;
+
+    if (!filter) {
+      throw new Error(`Missing data label for filter: ${content}`);
+    }
+
+    if (filter === activeFilter) {
+      setActiveFilter("");
+    } else {
+      setActiveFilter(filter);
+    }
   }
 
   return (
-    <form className="Form" onSubmit={handleSubmit}>
-      <div className="Form__search">
+    <div className="Form">
+      <form className="Form__search" onSubmit={handleSubmit}>
         <img src={search} alt="search icon" onClick={handleSubmit} />
         <input
           type="search"
@@ -54,7 +97,24 @@ export default function Form() {
           placeholder="Search for a country..."
           maxLength="30"
         />
+      </form>
+
+      <div className="Form__filter">
+        <button
+          type="button"
+          className="Form__filter-btn"
+          onClick={toggleDropdown}
+        >
+          <p>Filter by Region</p>
+          <img src={dropdown} alt="arrow down icon" />
+        </button>
+
+        {showDropdown && (
+          <ul className="Form__filter-options">
+            {regions.map((region) => renderFilter(region))}
+          </ul>
+        )}
       </div>
-    </form>
+    </div>
   );
 }
