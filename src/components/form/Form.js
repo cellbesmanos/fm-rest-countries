@@ -12,37 +12,16 @@ Form wil only fetch each time the user has:
 
 */
 
-export default function Form() {
-  const [searchInput, setSearchInput] = useState("");
+export default function Form({
+  searchInput,
+  activeFilter,
+  handleChange,
+  handleSubmit,
+  toggleFilter,
+}) {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("");
 
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
-
-  function handleChange(e) {
-    const type = e.target.dataset.label;
-    const value = e.target.value;
-
-    switch (type) {
-      case "search":
-        setSearchInput(value);
-        break;
-      case "filter":
-        break;
-      default:
-        throw new Error("Invalid form type.");
-    }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    if (!searchInput) {
-      return;
-    }
-
-    console.log(searchInput, activeFilter);
-  }
 
   function toggleDropdown() {
     setShowDropdown((prev) => !prev);
@@ -60,27 +39,12 @@ export default function Form() {
           {region}
         </li>
       );
-    }
-
-    return (
-      <li onClick={toggleFilter} key={region} data-label={region}>
-        {region}
-      </li>
-    );
-  }
-
-  function toggleFilter(e) {
-    const filter = e.target.dataset.label;
-    const content = e.target.textContent;
-
-    if (!filter) {
-      throw new Error(`Missing data label for filter: ${content}`);
-    }
-
-    if (filter === activeFilter) {
-      setActiveFilter("");
     } else {
-      setActiveFilter(filter);
+      return (
+        <li onClick={toggleFilter} key={region} data-label={region}>
+          {region}
+        </li>
+      );
     }
   }
 
