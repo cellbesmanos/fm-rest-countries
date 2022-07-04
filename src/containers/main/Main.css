@@ -2,6 +2,7 @@
   --margin-top: 40px;
   --gap: 50px;
 
+  position: relative;
   height: 100%;
   margin-block-start: var(--margin-top);
 
@@ -12,6 +13,7 @@
   gap: var(--gap);
 
   transition: margin var(--transition);
+  z-index: 1;
 }
 
 @media screen and (min-width: 46.875em) {
