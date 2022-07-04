@@ -3,6 +3,7 @@
   --width: 328px;
   --img-height: 200px;
 
+  position: relative;
   width: var(--width);
   min-height: var(--height);
 
@@ -10,13 +11,20 @@
   border-radius: var(--bradius);
   box-shadow: var(--shadow);
 
-  transition: width var(--transition), height var(--transition);
+  transition: width var(--transition), height var(--transition),
+    transform var(--transition);
   overflow: hidden;
+  cursor: pointer;
+}
+
+.Country:hover,
+.Country:focus {
+  transform: translateY(-5px);
 }
 
 @media screen and (min-width: 46.875em) {
   .Country {
-    --height: 336px;
+    --height: 380px;
     --width: 265px;
     --img-height: 161px;
   }
@@ -25,6 +33,8 @@
 .Country__img {
   display: inline-block;
   height: var(--img-height);
+  border-radius: var(--bradius);
+  border-bottom: 1px solid var(--clr-gray-400);
   transition: height var(--transition);
 }
 
