@@ -1,0 +1,22 @@
+.Main__country-container {
+  --margin-top: 40px;
+  --gap: 50px;
+
+  height: 100%;
+  margin-block-start: var(--margin-top);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
+  transition: margin var(--transition);
+}
+
+@media screen and (min-width: 46.875em) {
+  .Main__country-container {
+    --margin-top: 48px;
+    --gap: 73px;
+  }
+}
