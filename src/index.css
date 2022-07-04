@@ -22,8 +22,8 @@
   --fs-md: 16px;
 
   --shadow: 0px 2px 4px hsla(200, 15%, 8%, 0.1);
+  --spacing-inline: 23.5px;
   --transition: 0.2s ease-in-out;
-  --spacing-inline: clamp(23.5px, calc(2vw + 1rem), 80px);
   --bradius: 5px;
 }
 
@@ -48,6 +48,8 @@ body {
 }
 
 main {
+  max-width: 1440px;
+  margin-inline: auto;
   padding-block-start: 30px;
   padding-inline: var(--spacing-inline);
 
@@ -55,6 +57,10 @@ main {
 }
 
 @media screen and (min-width: 46.875em) {
+  :root {
+    --spacing-inline: 80px;
+  }
+
   main {
     padding-block-start: 48px;
   }
