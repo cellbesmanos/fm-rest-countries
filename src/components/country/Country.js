@@ -1,7 +1,7 @@
 import React from "react";
 import "./Country.css";
 
-export default function Country({ img, name, population, region, capital }) {
+function Country({ img, name, population, region, capital }) {
   return (
     <div className="Country">
       <img src={img} alt={`flag of ${name}`} className="Country__img" />
@@ -27,3 +27,5 @@ export default function Country({ img, name, population, region, capital }) {
     </div>
   );
 }
+
+export default React.memo(Country);
