@@ -24,11 +24,13 @@ export default function useFetch(url) {
           loading: false,
         });
       } catch (err) {
-        if (err.name === "AbortError") {
-          throw new Error("Something went wrong.");
-        } else {
-          throw err;
-        }
+        // could be improved
+        // if (err.name === "AbortError") {
+        //   throw new Error("Something went wrong.");
+        // } else {
+        //   throw err;
+        // }
+        setStatus({ data: [], loading: false });
       }
     })();
 
