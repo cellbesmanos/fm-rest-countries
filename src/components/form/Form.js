@@ -21,7 +21,7 @@ export default function Form({
 }) {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   function toggleDropdown() {
     setShowDropdown((prev) => !prev);
