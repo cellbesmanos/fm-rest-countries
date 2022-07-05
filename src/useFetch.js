@@ -19,7 +19,10 @@ export default function useFetch(url) {
         }
 
         const json = await res.json();
-        setStatus({ data: json, loading: false });
+        setStatus({
+          data: json.sort((curr, next) => curr.name.common > next.name.common),
+          loading: false,
+        });
       } catch (err) {
         if (err.name === "AbortError") {
           throw new Error("Something went wrong.");
