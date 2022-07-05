@@ -3,6 +3,7 @@ import Country from "../../components/country/Country";
 import Form from "../../components/form/Form";
 import "./Main.css";
 import useFetch from "../../useFetch";
+import Spinner from "../../components/spinner/Spinner";
 
 export default function Main() {
   const [searchInput, setSearchInput] = useState("");
@@ -76,7 +77,7 @@ export default function Main() {
   let content;
 
   if (loading) {
-    content = <p>Fetching countries...</p>;
+    content = <Spinner />;
   } else {
     content = countries
       .filter((country) => {
