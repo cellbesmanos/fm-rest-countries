@@ -1,6 +1,7 @@
 import React from "react";
-import "./Countries.css";
+import { Link } from "react-router-dom";
 import useFetch from "../../useFetch";
+import "./Countries.css";
 import Country from "../../components/country/Country";
 import CountryList from "../../components/countryList/CountryList";
 import Form from "../../components/form/Form";
@@ -8,6 +9,7 @@ import Form from "../../components/form/Form";
 export default function Countries() {
   const baseURL = "https://restcountries.com/v3.1";
   const responseFilter = "fields=name,flags,population,region,capital";
+
   const { data: countries, loading } = useFetch(
     `${baseURL}/all?${responseFilter}`
   );
@@ -21,7 +23,12 @@ export default function Countries() {
         {loading
           ? "Fetching data..."
           : countries.map((country) => (
-              <Country key={country.name.common} name={country.name.common} />
+              <Link
+                key={country.name.common}
+                to={`/country/${country.name.official}`}
+              >
+                <Country name={country.name.common} />
+              </Link>
             ))}
       </CountryList>
     </main>
