@@ -12,7 +12,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/countries" element={<Countries />} index />
+          <Route element={<Countries />} index />
           <Route path="/country/:id" element={<Details />} />
         </Route>
       </Routes>
