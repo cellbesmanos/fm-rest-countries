@@ -8,7 +8,7 @@ import Form from "../../components/form/Form";
 
 export default function Countries() {
   const baseURL = "https://restcountries.com/v3.1";
-  const responseFilter = "fields=name,flags,population,region,capital";
+  const responseFilter = "fields=name,cca3,flags,population,region,capital";
 
   const { data: countries, loading } = useFetch(
     `${baseURL}/all?${responseFilter}`
@@ -23,10 +23,7 @@ export default function Countries() {
         {loading
           ? "Fetching data..."
           : countries.map((country) => (
-              <Link
-                key={country.name.common}
-                to={`/country/${country.name.official}`}
-              >
+              <Link key={country.name.common} to={`/country/${country.cca3}`}>
                 <Country name={country.name.common} />
               </Link>
             ))}
