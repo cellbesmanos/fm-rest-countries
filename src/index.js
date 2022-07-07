@@ -8,14 +8,12 @@ import Details from "./routes/details/Details";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route element={<Countries />} index />
-          <Route path="/country/:id" element={<Details />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route element={<Countries />} index />
+        <Route path="/country/:id" element={<Details />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
