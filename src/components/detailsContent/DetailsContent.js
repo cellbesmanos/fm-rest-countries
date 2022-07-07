@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useFetch from "../../useFetch";
 import Borders from "../../components/borders/Borders";
 import "./DetailsContent.css";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 export default function DetailsContent({ id }) {
-  const baseURL = "https://restcountries.com/v3.1/alpha";
-  const responseFilter =
+  const BASE_URL = "https://restcountries.com/v3.1/alpha";
+  const FILTER_RESPONSE =
     "fields=name,flags,population,region,subregion,capital,tld,currencies,languages,borders";
-  const { data: country, loading } = useFetch(
-    `${baseURL}/${id}?${responseFilter}`
-  );
+  const {
+    data: country,
+    loading,
+    error,
+  } = useFetch(`${BASE_URL}/${id}?${FILTER_RESPONSE}`);
+
+  useEffect(() => {
+    if (error) {
+      throw new Error(error.message);
+    }
+  }, [error]);
 
   function extractObject(obj, type) {
     if (type !== "lang" && type !== "curr") {
@@ -54,7 +63,9 @@ export default function DetailsContent({ id }) {
 
           <div>
             {country.borders.length > 0 ? (
-              <Borders borders={country.borders} />
+              <ErrorBoundary>
+                <Borders borders={country.borders} />
+              </ErrorBoundary>
             ) : (
               "No border countries."
             )}
