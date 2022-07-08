@@ -19,6 +19,8 @@ export default function Border({ countryCode }) {
   }, [error]);
 
   return loading ? null : (
-    <Link to={`/country/${countryCode}`}>{country.name.common}</Link>
+    <Link className="Border" to={`/country/${countryCode}`}>
+      {country.name.common}
+    </Link>
   );
 }

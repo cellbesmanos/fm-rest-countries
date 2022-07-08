@@ -1,0 +1,22 @@
+.Border {
+  display: flex;
+  align-items: center;
+  min-width: 90px;
+  display: inline-block;
+  padding-block: 8px;
+  gap: 20px;
+
+  font-weight: var(--fw-500);
+  text-align: center;
+  border: 1px solid transparent;
+  background-color: var(--clr-white);
+  border-radius: var(--bradius);
+  box-shadow: var(--shadow);
+
+  transition: border-color var(--transition);
+}
+
+.Border:hover,
+.Border:focus {
+  border: 1px solid var(--clr-blue-400);
+}
