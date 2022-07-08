@@ -9,13 +9,13 @@ export default function Details() {
   const { id } = useParams();
 
   return (
-    <div>
+    <main>
       <Link to="/">Back</Link>
       <div>Details</div>
 
       <ErrorBoundary>
         <DetailsContent id={id} />
       </ErrorBoundary>
-    </div>
+    </main>
   );
 }
