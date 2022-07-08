@@ -23,7 +23,7 @@ export default class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <p>{this.state.msg}</p>;
+      return <p style={{ textAlign: "center" }}>{this.state.msg}</p>;
     }
 
     return this.props.children;
