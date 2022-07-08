@@ -1,0 +1,9 @@
+a {
+  text-decoration: unset;
+  outline: none;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+}

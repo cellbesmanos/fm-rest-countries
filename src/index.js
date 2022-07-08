@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Countries from "./routes/countries/Countries";
 import Details from "./routes/details/Details";
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
