@@ -15,7 +15,6 @@ export default function Details() {
         <img src={back} alt="back logo" aria-hidden="true" />
         Back
       </Link>
-      <div>Details</div>
 
       <ErrorBoundary>
         <DetailsContent id={id} />
