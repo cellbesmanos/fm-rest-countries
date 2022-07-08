@@ -12,7 +12,9 @@ function Country({ img, name, population, region, capital }) {
         <div className="Country__stats">
           <div>
             <h3>Population:</h3>
-            <span>{population.toLocaleString("en-US") || "N/A"}</span>
+            <span>
+              {population ? population.toLocaleString("en-US") : "N/A"}
+            </span>
           </div>
           <div>
             <h3>Region:</h3>
