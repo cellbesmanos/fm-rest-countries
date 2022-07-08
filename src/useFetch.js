@@ -17,7 +17,7 @@ export default function useFetch(url) {
       setStatus((prev) => {
         return { ...prev, error: error };
       });
-    }, 8000);
+    }, 10000);
   }, []);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function useFetch(url) {
       controller.abort();
       clearTimeout(timeoutTimer.current);
     };
-  }, [url, status]);
+  }, [url]);
 
   return status;
 }
