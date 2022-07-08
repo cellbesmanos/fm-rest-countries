@@ -22,7 +22,7 @@ function Country({ img, name, population, region, capital }) {
           </div>
           <div>
             <h3>Capital:</h3>
-            <span>{capital || "N/A"}</span>
+            <span>{capital[0] ? capital[0] : "N/A"}</span>
           </div>
         </div>
       </div>

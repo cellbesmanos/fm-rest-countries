@@ -64,7 +64,7 @@ function DetailsContent({ id }) {
                   Official Name: <span>{toProper(country.name.official)}</span>
                 </p>
                 <p>
-                  Population:
+                  Population:{" "}
                   <span>
                     {toProper(country.population.toLocaleString("en-US"))}
                   </span>
@@ -81,7 +81,7 @@ function DetailsContent({ id }) {
                 <p>
                   Capital:{" "}
                   <span>
-                    {country.subregion ? toProper(country.capital) : "N/A"}
+                    {country.capital[0] ? toProper(country.capital[0]) : "N/A"}
                   </span>
                 </p>
               </div>
