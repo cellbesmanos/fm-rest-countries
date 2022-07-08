@@ -9,6 +9,7 @@
 .Borders__list {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 29px;
   flex-wrap: wrap;
 }
