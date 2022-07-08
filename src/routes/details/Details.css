@@ -1,0 +1,25 @@
+.Details__back {
+  display: flex;
+  align-items: center;
+  max-width: 100px;
+  padding-block: 8px;
+  padding-inline: 20px;
+  gap: 8px;
+
+  font-weight: var(--fw-500);
+  border: 1px solid transparent;
+  background-color: var(--clr-white);
+  border-radius: var(--bradius);
+  box-shadow: var(--shadow);
+
+  transition: border-color var(--transition);
+}
+
+.Details__back:hover,
+.Details__back:focus {
+  border: 1px solid var(--clr-blue-400);
+}
+
+.Details__back img {
+  width: 20px;
+}

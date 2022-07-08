@@ -5,7 +5,7 @@ import "./DetailsContent.css";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import { toProper } from "../../helper-functions";
 
-export default function DetailsContent({ id }) {
+function DetailsContent({ id }) {
   const BASE_URL = "https://restcountries.com/v3.1/alpha";
   const FILTER_RESPONSE =
     "fields=name,flags,population,region,subregion,capital,tld,currencies,languages,borders";
@@ -62,7 +62,7 @@ export default function DetailsContent({ id }) {
                   Official Name: <span>{toProper(country.name.official)}</span>
                 </p>
                 <p>
-                  Population:{" "}
+                  Population:
                   <span>
                     {toProper(country.population.toLocaleString("en-US"))}
                   </span>
@@ -71,10 +71,16 @@ export default function DetailsContent({ id }) {
                   Region: <span>{toProper(country.region)}</span>
                 </p>
                 <p>
-                  Sub Region: <span>{toProper(country.subregion)}</span>
+                  Sub Region:{" "}
+                  <span>
+                    {country.subregion ? toProper(country.subregion) : "N/A"}
+                  </span>
                 </p>
                 <p>
-                  Capital: <span>{toProper(country.capital)}</span>
+                  Capital:{" "}
+                  <span>
+                    {country.subregion ? toProper(country.capital) : "N/A"}
+                  </span>
                 </p>
               </div>
               <div>
@@ -105,3 +111,5 @@ export default function DetailsContent({ id }) {
     </>
   );
 }
+
+export default React.memo(DetailsContent);
