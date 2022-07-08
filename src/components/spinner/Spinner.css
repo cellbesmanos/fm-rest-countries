@@ -1,5 +1,13 @@
 .Spinner {
+  position: relative;
+}
+
+.Spinner__loader {
   --size: 40px;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
   content: "";
   width: var(--size);
