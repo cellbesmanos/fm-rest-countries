@@ -104,9 +104,7 @@ function DetailsContent({ id }) {
               <ErrorBoundary>
                 <Borders borders={country.borders} />
               </ErrorBoundary>
-            ) : (
-              "No border countries."
-            )}
+            ) : null}
           </div>
         </article>
       )}
