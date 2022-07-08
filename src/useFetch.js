@@ -22,6 +22,7 @@ export default function useFetch(url) {
 
   useEffect(() => {
     const controller = new AbortController();
+    setStatus({ ...status, loading: true });
 
     (async () => {
       try {
