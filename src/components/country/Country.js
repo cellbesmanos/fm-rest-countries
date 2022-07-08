@@ -1,6 +1,8 @@
 import React from "react";
 import "./Country.css";
 
-export default function Country({ name }) {
+function Country({ name }) {
   return <div>{name}</div>;
 }
+
+export default React.memo(Country);
