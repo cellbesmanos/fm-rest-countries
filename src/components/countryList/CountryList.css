@@ -1,0 +1,22 @@
+.CountryList {
+  --gap: 50px;
+
+  position: relative;
+  height: 100%;
+  margin-block-start: var(--margin-top);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
+  transition: margin var(--transition);
+  z-index: 1;
+}
+
+@media screen and (min-width: 46.875em) {
+  .CountryList {
+    --gap: 73px;
+  }
+}
