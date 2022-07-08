@@ -22,20 +22,16 @@ export default function useFetch(url) {
 
   useEffect(() => {
     const controller = new AbortController();
-    setStatus({ ...status, loading: true });
+    setStatus({ data: [], loading: true, error: null });
 
     (async () => {
       try {
         const response = await fetch(url, { signal: controller.signal });
 
         if (response.status !== 200) {
-          const error = new Error(
-            "That does not seem right. Please use a country's name or its partial name."
-          );
-          error.name = "NotFound";
-
-          throw error;
+          throw new Error("Page not found.");
         }
+
         clearTimeout(timeoutTimer.current);
         const json = await response.json();
 
@@ -45,7 +41,10 @@ export default function useFetch(url) {
           console.warn(
             "Fetch request successfully aborted. You can safely ignore this message."
           );
-        } else if (error.name === "NotFound") {
+        } else if (error.message === "Page not found.") {
+          clearTimeout(timeoutTimer.current);
+          setStatus({ data: [], loading: false, error: null });
+        } else {
           clearTimeout(timeoutTimer.current);
           setStatus((prev) => {
             return {
@@ -53,8 +52,6 @@ export default function useFetch(url) {
               error: error,
             };
           });
-        } else {
-          console.error(error.message);
         }
       }
     })();
