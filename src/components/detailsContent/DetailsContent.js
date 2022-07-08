@@ -4,6 +4,7 @@ import Borders from "../../components/borders/Borders";
 import "./DetailsContent.css";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import { toProper } from "../../helper-functions";
+import Spinner from "../spinner/Spinner";
 
 function DetailsContent({ id }) {
   const BASE_URL = "https://restcountries.com/v3.1/alpha";
@@ -44,7 +45,7 @@ function DetailsContent({ id }) {
   return (
     <>
       {loading ? (
-        "Fetching data"
+        <Spinner />
       ) : (
         <article className="DetailsContent">
           <div className="DetailsContent__img">
@@ -55,9 +56,10 @@ function DetailsContent({ id }) {
           </div>
 
           <div className="DetailsContent__text">
+            <h1>{toProper(country.name.common)}</h1>
+
             <div className="DetailsContent__stats">
               <div>
-                <h1>{toProper(country.name.common)}</h1>
                 <p>
                   Official Name: <span>{toProper(country.name.official)}</span>
                 </p>

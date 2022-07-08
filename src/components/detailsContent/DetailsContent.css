@@ -1,52 +1,45 @@
 .DetailsContent {
-  --margin: 128px;
-  --gap: 88px;
-
-  margin-block-start: var(--margin);
   display: flex;
   align-items: center;
-  gap: var(--gap);
+  gap: 64px;
   flex-wrap: wrap;
 }
 
 .DetailsContent__img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: min(100%, 560px);
-  height: 400px;
+  width: min(100%, 400px);
 }
 
 .DetailsContent__img img {
   width: 100%;
 }
 
+.DetailsContent__text > h1 {
+  margin-block-end: 50px;
+  font-size: 40px;
+  letter-spacing: 0.03em;
+}
+
 .DetailsContent__stats {
-  --heading: 40px;
-  --stats: 26px;
+  --stats: 18px;
 
   display: flex;
-  align-items: center;
-  gap: var(--gap);
+  align-items: flex-start;
+  gap: 40px;
   flex-wrap: wrap;
 
   font-size: var(--stats);
 }
 
-.DetailsContent__stats > h1 {
-  margin-block-end: 50px;
-  font-size: var(--heading);
-  letter-spacing: 0.03em;
+.DetailsContent__stats > div > *:not(:first-child) {
+  margin-block-start: 8px;
 }
 
-.DetailsContent__stats > p:not(:first-child) {
-  margin-block-start: 30px;
-}
-
-.DetailsContent__stats > p {
+.DetailsContent__stats > div > p {
+  font-weight: var(--fw-500);
   letter-spacing: 0.04em;
 }
 
-.DetailsContent__stats span {
+.DetailsContent__stats > div > p > span {
+  font-weight: var(--fw-400);
   letter-spacing: -0.02em;
 }
