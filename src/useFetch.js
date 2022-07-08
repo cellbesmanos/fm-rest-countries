@@ -48,7 +48,7 @@ export default function useFetch(url) {
         } else if (error.message === "Page not found.") {
           clearTimeout(timeoutTimer.current);
           setStatus(() => {
-            return { data: [], loading: true, error: null };
+            return { data: [], loading: false, error: null };
           });
         } else {
           clearTimeout(timeoutTimer.current);
