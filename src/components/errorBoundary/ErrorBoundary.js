@@ -16,14 +16,16 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, info) {
-    this.setState({
-      msg: error.message,
-    });
+    console.error(error);
   }
 
   render() {
     if (this.state.hasError) {
-      return <p style={{ textAlign: "center" }}>{this.state.msg}</p>;
+      return (
+        <p style={{ textAlign: "center" }}>
+          Something went wrong. Please try again later.
+        </p>
+      );
     }
 
     return this.props.children;
