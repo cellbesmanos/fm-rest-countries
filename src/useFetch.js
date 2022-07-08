@@ -22,7 +22,9 @@ export default function useFetch(url) {
 
   useEffect(() => {
     const controller = new AbortController();
-    setStatus({ data: [], loading: true, error: null });
+    setStatus(() => {
+      return { data: [], loading: true, error: null };
+    });
 
     (async () => {
       try {
@@ -35,7 +37,9 @@ export default function useFetch(url) {
         clearTimeout(timeoutTimer.current);
         const json = await response.json();
 
-        setStatus({ ...status, data: json, loading: false });
+        setStatus((prev) => {
+          return { ...prev, data: json, loading: false };
+        });
       } catch (error) {
         if (error.name === "AbortError") {
           console.warn(
@@ -43,7 +47,9 @@ export default function useFetch(url) {
           );
         } else if (error.message === "Page not found.") {
           clearTimeout(timeoutTimer.current);
-          setStatus({ data: [], loading: false, error: null });
+          setStatus(() => {
+            return { data: [], loading: true, error: null };
+          });
         } else {
           clearTimeout(timeoutTimer.current);
           setStatus((prev) => {
