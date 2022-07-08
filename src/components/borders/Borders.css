@@ -1,7 +1,5 @@
 .Borders {
-  --gap: 88px;
-
-  margin-block-start: var(--gap);
+  margin-block-start: 40px;
   display: flex;
   align-items: center;
   gap: 35px;
