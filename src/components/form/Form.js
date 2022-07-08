@@ -3,15 +3,6 @@ import "./Form.css";
 import search from "./../../assets/search-outline.svg";
 import dropdown from "./../../assets/chevron-down-outline.svg";
 
-/*
-
-Form wil only fetch each time the user has:
-
-- clicked the search icon
-- hit enter
-
-*/
-
 export default function Form({
   searchInput,
   activeFilter,

@@ -1,44 +1,68 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function useFetch(url) {
-  const [status, setStatus] = useState({ data: null, loading: true });
+  const [status, setStatus] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
+  let timeoutTimer = useRef(null);
+
+  useEffect(() => {
+    timeoutTimer.current = setTimeout(() => {
+      const error = new Error(
+        "Connection timeout. Please check your internet connection."
+      );
+      error.name = "NetworkError";
+      setStatus((prev) => {
+        return { ...prev, error: error };
+      });
+    }, 8000);
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
 
     (async () => {
       try {
-        const res = await fetch(url, { signal: controller.signal });
+        const response = await fetch(url, { signal: controller.signal });
 
-        if (res.status !== 200) {
+        if (response.status !== 200) {
           const error = new Error(
-            "That does not seem right. Please try a different keyword."
+            "That does not seem right. Please use a country's name or its partial name."
           );
           error.name = "NotFound";
+
           throw error;
         }
+        clearTimeout(timeoutTimer.current);
+        const json = await response.json();
 
-        const json = await res.json();
-        setStatus({
-          data: json.sort((curr, next) => curr.name.common > next.name.common),
-          loading: false,
-        });
-      } catch (err) {
-        // could be improved
-        // if (err.name === "AbortError") {
-        //   throw new Error("Something went wrong.");
-        // } else {
-        //   throw err;
-        // }
-        setStatus({ data: [], loading: false });
+        setStatus({ ...status, data: json, loading: false });
+      } catch (error) {
+        if (error.name === "AbortError") {
+          console.warn(
+            "Fetch request successfully aborted. You can safely ignore this message."
+          );
+        } else if (error.name === "NotFound") {
+          clearTimeout(timeoutTimer.current);
+          setStatus((prev) => {
+            return {
+              ...prev,
+              error: error,
+            };
+          });
+        } else {
+          console.error(error.message);
+        }
       }
     })();
 
-    // cancel request if component unmounts
     return () => {
       controller.abort();
+      clearTimeout(timeoutTimer.current);
     };
-  }, [url]);
+  }, [url, status]);
 
   return status;
 }

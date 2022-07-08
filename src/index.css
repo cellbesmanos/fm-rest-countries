@@ -69,3 +69,13 @@ main {
 img {
   width: 100%;
 }
+
+a {
+  text-decoration: unset;
+  outline: none;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+}
