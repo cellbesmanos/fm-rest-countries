@@ -3,6 +3,7 @@ import useFetch from "../../useFetch";
 import Borders from "../../components/borders/Borders";
 import "./DetailsContent.css";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
+import { toProper } from "../../helper-functions";
 
 export default function DetailsContent({ id }) {
   const BASE_URL = "https://restcountries.com/v3.1/alpha";
@@ -34,34 +35,63 @@ export default function DetailsContent({ id }) {
       } else {
         concat = type === "lang" ? `, ${obj[key]}` : `, ${obj[key].name}`;
       }
-      str += concat;
+      str += toProper(concat);
       index++;
     }
     return str;
   }
 
   return (
-    <div>
+    <>
       {loading ? (
-        "Fetching data..."
+        "Fetching data"
       ) : (
-        <div>
-          <img src={country.flags.png} alt={`flag of ${country.name.common}`} />
-          <div>
-            <p>{country.name.common}</p>
-            <p>{country.name.official}</p>
-            <p>{country.population.toLocaleString("en-US")}</p>
-            <p>{country.region}</p>
-            <p>{country.subregion}</p>
-            <p>{country.capital}</p>
-          </div>
-          <div>
-            <p>{country.tld}</p>
-            <p>{extractObject(country.currencies, "curr")}</p>
-            <p>{extractObject(country.languages, "lang")}</p>
+        <article className="DetailsContent">
+          <div className="DetailsContent__img">
+            <img
+              src={country.flags.svg}
+              alt={`flag of ${country.name.common}`}
+            />
           </div>
 
-          <div>
+          <div className="DetailsContent__text">
+            <div className="DetailsContent__stats">
+              <div>
+                <h1>{toProper(country.name.common)}</h1>
+                <p>
+                  Official Name: <span>{toProper(country.name.official)}</span>
+                </p>
+                <p>
+                  Population:{" "}
+                  <span>
+                    {toProper(country.population.toLocaleString("en-US"))}
+                  </span>
+                </p>
+                <p>
+                  Region: <span>{toProper(country.region)}</span>
+                </p>
+                <p>
+                  Sub Region: <span>{toProper(country.subregion)}</span>
+                </p>
+                <p>
+                  Capital: <span>{toProper(country.capital)}</span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Top Level Domain: <span>{toProper(country.tld)}</span>
+                </p>
+                <p>
+                  Currencies:{" "}
+                  <span>{extractObject(country.currencies, "curr")}</span>
+                </p>
+                <p>
+                  Languages:{" "}
+                  <span>{extractObject(country.languages, "lang")}</span>
+                </p>
+              </div>
+            </div>
+
             {country.borders.length > 0 ? (
               <ErrorBoundary>
                 <Borders borders={country.borders} />
@@ -70,8 +100,8 @@ export default function DetailsContent({ id }) {
               "No border countries."
             )}
           </div>
-        </div>
+        </article>
       )}
-    </div>
+    </>
   );
 }

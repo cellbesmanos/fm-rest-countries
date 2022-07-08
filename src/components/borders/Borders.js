@@ -4,11 +4,13 @@ import "./Borders.css";
 
 export default function Borders({ borders }) {
   return (
-    <div>
-      <h2>Borders:</h2>
-      {borders.map((border) => (
-        <Border key={border} countryCode={border} />
-      ))}
+    <div className="Borders">
+      <h2>Border Countries:</h2>
+      <div className="Borders__list">
+        {borders.map((border) => (
+          <Border key={border} countryCode={border} />
+        ))}
+      </div>
     </div>
   );
 }

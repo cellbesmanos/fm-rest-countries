@@ -1,0 +1,16 @@
+.Borders {
+  --gap: 88px;
+
+  margin-block-start: var(--gap);
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+.Borders__list {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+  flex-wrap: wrap;
+}
