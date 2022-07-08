@@ -22,18 +22,22 @@ export default function Form({
     if (region === activeFilter) {
       return (
         <li
+          key={region}
           onClick={toggleFilter}
           className="active"
-          key={region}
           data-label={region}
         >
-          {region}
+          <button type="button" data-label={region}>
+            {region}
+          </button>
         </li>
       );
     } else {
       return (
-        <li onClick={toggleFilter} key={region} data-label={region}>
-          {region}
+        <li key={region} onClick={toggleFilter} data-label={region}>
+          <button type="button" data-label={region}>
+            {region}
+          </button>
         </li>
       );
     }
