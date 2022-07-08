@@ -79,3 +79,10 @@ a:link,
 a:visited {
   color: inherit;
 }
+
+button {
+  border: unset;
+  background-color: unset;
+  outline: none;
+  cursor: pointer;
+}
