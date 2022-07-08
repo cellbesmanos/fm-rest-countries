@@ -1,6 +1,9 @@
 .Form {
   position: relative;
   --height: 59px;
+  --margin-bottom: 40px;
+
+  margin-block-end: var(--margin-bottom);
 
   display: flex;
   align-items: center;
@@ -13,6 +16,7 @@
 @media screen and (min-width: 46.875em) {
   .Form {
     --height: 56px;
+    --margin-bottom: 48px;
   }
 }
 
