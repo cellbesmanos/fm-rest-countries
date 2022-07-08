@@ -50,7 +50,7 @@ body {
 main {
   max-width: 1440px;
   margin-inline: auto;
-  padding-block-start: 30px;
+  padding-block: 30px;
   padding-inline: var(--spacing-inline);
 
   transition: padding var(--transition);
